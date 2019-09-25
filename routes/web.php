@@ -16,6 +16,7 @@ use App\User ;
 use App\Order;
 
 Route::resource('product','ProductController');
+Route::resource('order','OrderController');
 
 /*
 Route::get('/', function () {

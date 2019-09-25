@@ -12,17 +12,17 @@ class ManufacturersTableSeeder extends Seeder
     public function run()
     {
         DB::table('manufacturers')->insert([
-            'name' => 'Restaurant 1',
+            'name' => 'KFC',
             'updated_at' => DB::raw('CURRENT_TIMESTAMP')
         ]);
 
         DB::table('manufacturers')->insert([
-            'name' => 'Restaurant 2',
+            'name' => 'Nandos',
             'updated_at' => DB::raw('CURRENT_TIMESTAMP')
         ]);
 
         DB::table('manufacturers')->insert([
-            'name' => 'Restaurant 3',
+            'name' => 'McDonalds',
             'updated_at' => DB::raw('CURRENT_TIMESTAMP')
         ]);
     }

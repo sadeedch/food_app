@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm"  style="border-bottom:2px  outset red ;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/product') }}"> <img src="{{asset('css/logo.jpg')}}" width="40px" height= "40px" alt="logo">
                     Food App
