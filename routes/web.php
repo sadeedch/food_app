@@ -17,6 +17,14 @@ use App\Order;
 
 Route::resource('product','ProductController');
 Route::resource('order','OrderController');
+Route::resource('manufacturer','ManufacturerController');
+
+
+Route::get('doc', function(){
+    return view('doc');
+});
+
+//???  Route::post('products/order/{id}', 'ProductController@addToOrder');
 
 /*
 Route::get('/', function () {
@@ -33,13 +41,16 @@ Route::get('/test', function () {
     //dd($prods);
     //$products = Manufacturer::find(1)->products;
     //$manufacturer = Order::all();
-    $prods = Product::where('manufacturer_id = 1 or manufacturer_id = 2')->get();
-    $count = $prods->count();
-    dd($count);
+    //$prods = Product::where('manufacturer_id = 1 or manufacturer_id = 2')->get();
+    //$count = $prods->count();
+    // dd($count);
+
+
+
 
 
 });
-  
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

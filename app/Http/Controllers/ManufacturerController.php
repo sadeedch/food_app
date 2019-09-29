@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Manufacturer;
 use App\Order;
-use App\User;
-class OrderController extends Controller
+
+
+class ManufacturerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +17,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::all();
-        
-
-        //$products = Product::orderBy('name', 'desc')->paginate(2 );
-        return view ('orders.index')->with('orders', $orders );
+        $manufacturers = Manufacturer::all();
+       
+        return view ('manufacturers.index')->with('manufacturers', $manufacturers );
     }
 
     /**
@@ -31,7 +29,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        
+        return view ('manufacturers.register');
     }
 
     /**
@@ -42,44 +40,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-       /*
-        $order = new Order();
-        $order->user_id = $request->user;
-        $order->product_id = $request->product;
-        $order->manufacturer_id = $request->manufacturer;
-        //$order->quantity = 1;
-        $order->save();
-        return redirect ("product/$product->id"); 
-        */
-
-        /*
-        $order = new Order();
-        $order->user_id = $request->user;
-        $order->product_id = $request->product;
-        $order->manufacturer_id = $request->manufacturer;
-        
-        //$order->quantity = 1; $order['quantity']++;
-        $order->save();
-        return redirect()->back()->with('message', 'Dish has been added to your Order');
-        */
-        $order = new Order();
-        $order->user_id = Auth::id();
-        $order->product_id = $request->product_id;
-        $order->manufacturer_id = $request->manufacturer_id;
-        $order->quantity = 1;
-        $order->save();
-
-        return redirect()->back()->with('message',' Dish has been added to your Order');
-        
-        
-
-       
-
-        
-
-        
-
-
+        //
     }
 
     /**
@@ -90,7 +51,9 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+       $manufacturers = Manufacturer::find($id);
+       $products = $manufacturers->products;
+       return view ('products.show')->with('products',$products)->with('manufacturers', $manufacturers);
     }
 
     /**

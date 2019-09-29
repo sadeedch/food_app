@@ -18,12 +18,16 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
+    
+    
+    
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm"  style="border-bottom:2px  outset red ;">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/product') }}"> <img src="{{asset('css/logo.jpg')}}" width="40px" height= "40px" alt="logo">
+                <a class="navbar-brand" href="{{ url('/manufacturer') }}"> <img src="{{asset('css/logo.jpg')}}" width="40px" height= "40px" alt="logo">
                     Food App
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -38,11 +42,14 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        
+
+                        <li class="nav-item">
+                                <a class="nav-link border border-info rounded" href="{{url("/doc")}}">Documentation</a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest     
-                            <li class="nav-item">
-                                <a class="nav-link border border-info rounded" style="" href="products.restaurant">Restaurants</a>
-                            </li>
+                            
                             
                             
                         
@@ -55,8 +62,13 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('manufacturer/create') }}">{{ __('Restaurant Registration') }}</a>
+                                </li>
                             @endif
                         @else
+                            {{Auth::user()->role}}
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -80,9 +92,10 @@
             </div>
         </nav>
 
-        <main  align="center" class="col-md-12">
-        <br>
+        <main class="col-md-12"><br>
+        <div align ="center">
             @yield('content')
+        </div>
         </main>
     </div>
 </body>

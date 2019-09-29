@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -60,7 +62,7 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
+                        <input type ="hidden" value = "manufacturers" name ="role">
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right">Address</label>
 
@@ -73,11 +75,11 @@
 
 
                 
-                        <!-- 
-                        <input type ="hidden" value = "restaurants" name = "role">
+                        
+                       
 
 
-                        -->
+                    
                     
                      
 

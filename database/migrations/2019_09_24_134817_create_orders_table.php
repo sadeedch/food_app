@@ -16,6 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id'); // foreign key for users table
+            
             $table->integer('product_id'); //foreign key for products table
             $table->integer('manufacturer_id'); //foreign key for manufacturer table
             $table->integer('quantity');

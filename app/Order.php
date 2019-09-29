@@ -11,4 +11,8 @@ class Order extends Model
     function manufacturer(){
         return $this->belongsTo('App\Manufacturer');
     }
+
+    function products(){
+        return $this->hasMany('App\Product', 'product_id');
+    }
 }
