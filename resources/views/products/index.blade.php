@@ -12,6 +12,7 @@
     <div class=" border border-success rounded " style="width: 400px;">
       <h3><a href="product/{{$product->id}}">{{$product->name}} </a> </h3>
       <small> Price {{$product->price}}</small><br>
+      
       <div>
         <button type="button"  style="display: block; width: 20%; height: 30px;"class="btn btn-success" href='{{url("order/store")}}' >Order</button>
       </div>

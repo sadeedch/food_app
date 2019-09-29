@@ -50,11 +50,12 @@ class ProductController extends Controller
             'price' => 'required|numeric|min:1',
             'manufacturer' => 'exists:manufacturers,id'
         ]);
-
+        $image_store = request()->file('image')->store('products_images', 'public');
         $product = new Product();
         $product->name = $request->name;
         $product->price = $request->price;
         $product->manufacturer_id = $request->manufacturer;
+        $product->image = $image_store;
         $product->save();
         return redirect ("product/$product->id");
     }

@@ -13,6 +13,6 @@ class Order extends Model
     }
 
     function products(){
-        return $this->hasMany('App\Product', 'product_id');
+        return $this->hasMany('App\Product', 'product_id')->withPivot('name', 'price');
     }
 }

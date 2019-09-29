@@ -23,7 +23,13 @@
       @else
       <p><label>Price:</label> <input type="text" name="price" value="{{$product->price}}"><br></p>
       @endif
-
+      
+      @foreach ($manufacturers as $manufacturer)
+      <input type="hidden" name="manufacturer" value="{{$manufacturer->id}}">
+      @endforeach
+      
+      
+      <!-- 
       <p> <select name="manufacturer">
       @foreach ($manufacturers as $manufacturer)
         @if ($manufacturer->id == $product->manufacturer_id)
@@ -32,7 +38,8 @@
             <option value="{{$manufacturer->id}}"> {{$manufacturer->name}}</option> 
         @endif
       @endforeach
-      </select></p>
+      </select></p> 
+    -->
     <input type="submit" value="Update item">
   </form>
 
