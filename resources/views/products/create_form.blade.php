@@ -1,3 +1,6 @@
+@guest
+@else
+
 @extends('layouts.app')
 
 @section('title')
@@ -5,8 +8,8 @@
 @endsection
 
 @section('content')
-    
-  
+
+
   <form method="post" action="{{url("product")}}"  enctype="multipart/form-data">
      {{csrf_field()}}
      
@@ -21,18 +24,23 @@
     </span>
 
     <p><input type="file" name="image"></p> 
+  
+    
+
+
+    @foreach ($manufacturers as $manufacturer)
+     
+    
+    
+    
+        <input type="text" name="manufacturer" value="{{$manufacturer->id}}">
+    
+     
+    @endforeach
 
     
-    <p> <select name="manufacturer">
-    @foreach ($manufacturers as $manufacturer)
-      @if($manufacturer->id == old('manufacturer'))
-        <option value="{{$manufacturer->id}}" selected="selected">{{$manufacturer->name}}</option>
-      @else
-        <option value="{{$manufacturer->id}}">{{$manufacturer->name}}</option>
-      @endif
-    @endforeach
     
-    </select></p>
+    
     
     
     <input type ="submit" value="Create">
@@ -40,4 +48,6 @@
 
 
   </form>
+
+@endguest
 @endsection

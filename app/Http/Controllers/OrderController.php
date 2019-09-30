@@ -16,10 +16,25 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $orders = Order::all();
-        
+    {   
 
+        /*$user = Auth::user()->name;
+        
+        $name = $user;
+        $products = Product::whereHas('manufacturer', function($query) use ($name){
+        return $query->whereRaw('name like ?', array("%$name%"));
+        })->get();
+        */
+
+        $user = Auth::user()->id;
+
+       
+        $orders = \DB::select('select u.name, u.address, p.name, p.price from users u, orders o, products p
+         where u.id = ? and u.id = o.user_id and o.product_id = p.id', [$user]);
+
+         
+        
+        
         //$products = Product::orderBy('name', 'desc')->paginate(2 );
         return view ('orders.index')->with('orders', $orders );
     }
@@ -90,7 +105,9 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = Auth::user()->name;
+        
+        dd($user);
     }
 
     /**

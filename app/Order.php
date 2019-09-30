@@ -15,4 +15,10 @@ class Order extends Model
     function products(){
         return $this->hasMany('App\Product', 'product_id')->withPivot('name', 'price');
     }
+
+
+    public function user()
+{
+    return $this->belongsTo(User::class, 'user_id');
+}
 }

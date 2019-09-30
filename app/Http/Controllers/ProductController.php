@@ -35,6 +35,7 @@ class ProductController extends Controller
     public function create()
     {
         return view ('products.create_form')->with('manufacturers', Manufacturer::all());
+        
     }
 
     /**
@@ -119,7 +120,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
-        return redirect('product');
+        return redirect()->back()->with('message','Dish has been deleted');
       
     }
 }

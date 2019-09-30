@@ -33,7 +33,9 @@ class LoginController extends Controller
      * @return void
      */
     public function __construct()
-    {
+    {   //this redirects back to the previous page after successful login
+        session(['url.intended' => url()->previous()]);
+        $this->redirectTo = session()->get('url.intended');
         $this->middleware('guest')->except('logout');
     }
 }

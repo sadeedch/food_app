@@ -24,7 +24,7 @@ class ManufacturersTableSeeder extends Seeder
             'role' => 'manufacturer',
             'name' => 'Nandos',
             'email' => 'nandos@gmail.com',
-            'password' => bcrypt('12345678'),
+            'password' => bcrypt('1234'),
             'address' => '65 throughton road, Brisbane',
             'updated_at' => DB::raw('CURRENT_TIMESTAMP')
         ]);
@@ -33,7 +33,7 @@ class ManufacturersTableSeeder extends Seeder
             'role' => 'manufacturer',
             'name' => 'McDonalds',
             'email' => 'mcdonalds@gmail.com',
-            'password' => bcrypt('12345678'),
+            'password' => bcrypt('1234'),
             'address' => '65 throughton road, Brisbane',
             'updated_at' => DB::raw('CURRENT_TIMESTAMP')
         ]);

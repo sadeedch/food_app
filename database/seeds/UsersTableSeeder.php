@@ -14,14 +14,14 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => "Bob",
             'email' => 'Bob@gmail.com',
-            'password' => bcrypt('123456'),
+            'password' => bcrypt('1234'),
             'address' => '123 street, sunnybank',
             'role' => 'customer',
             ]);
         DB::table('users')->insert([
             'name' => "Fred",
             'email' => 'Fred@gmail.com',
-            'password' => bcrypt('123456'),
+            'password' => bcrypt('1234'),
             'address' => '8 woodsina street, brisbane',
             'role' => 'customer',
             
@@ -29,16 +29,18 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => "sadeed",
             'email' => 'sadeed@gmail.com',
-            'password' => bcrypt('12345678'),
+            'password' => bcrypt('1234'),
             'address' => '65 throughton road, Brisbane',
             'role' => 'customer',
             ]);
             DB::table('users')->insert([
-                'name' => "pakistan",
-                'email' => 'pakistan@gmail.com',
-                'password' => bcrypt('12345678'),
-                'address' => '65 throughton road, Brisbane',
-                'role' => 'manufacturer'
-                ]);
+               
+            'name' => "Food Point",
+            'email' => 'food@gmail.com',
+            'password' => bcrypt('1234'),
+            'address' => '65 throughton road, Brisbane',
+            'role' => 'manufacturer',
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP')
+            ]);
     }
 }

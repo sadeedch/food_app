@@ -26,7 +26,7 @@ class OrdersTableSeeder extends Seeder
             'updated_at' => DB::raw('CURRENT_TIMESTAMP')
         ]);
         DB::table('orders')->insert([
-            'user_id' => 1,
+            'user_id' => 3,
             'product_id' => 3,
             'manufacturer_id' => 1,
             'quantity' => 30,

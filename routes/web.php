@@ -26,11 +26,11 @@ Route::get('doc', function(){
 
 //???  Route::post('products/order/{id}', 'ProductController@addToOrder');
 
-/*
+
 Route::get('/', function () {
     return view('welcome');
 });
-*/
+
 
 Route::get('/test', function () {
     //$user = User::find(1);

@@ -4,6 +4,9 @@
 @endsection
 
 @section('content')
+<div  class="btn btn-success"  >
+<p> <a  style="color: white;" href='{{url("product/create")}}'>Add New Dish</a></p>
+</div>
     
     @if(session()->has('message'))
         <div class="alert alert-success">
@@ -17,7 +20,7 @@
         {{method_field ('POST')}}
         <div class="  border-success border-bottom" style="width: 400px;">
         <h1>{{$product->name}}</h1>
-        <p>{{$product->price}}</p>
+        <p>${{$product->price}}</p>
         <img src="{{url($product->image)}}" alt="product image" style="width:300px;height:300px;">
         <input type="hidden" name="manufacturer_id" value="{{$product->manufacturer_id}}">
         <input type="hidden" name="product_id" value="{{$product->id}}">

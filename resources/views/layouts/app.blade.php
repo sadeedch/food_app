@@ -27,7 +27,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm"  style="border-bottom:2px  outset red ;">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/manufacturer') }}"> <img src="{{asset('css/logo.jpg')}}" width="40px" height= "40px" alt="logo">
+                <a class="navbar-brand" href="{{ url('/') }}"> <img src="{{asset('css/logo.jpg')}}" width="40px" height= "40px" alt="logo">
                     Food App
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -51,7 +51,7 @@
                         @guest     
                             
                             
-                            
+                        
                         
                         
                             <li class="nav-item">
@@ -68,7 +68,19 @@
                                 </li>
                             @endif
                         @else
+                            @if (Auth::user()->role == "customer")
+                            <li class="nav-item">
+                                <a class="nav-link border border-info rounded " href="{{url("/order")}}">Cart</a>
+                            </li>
+                            @endif
+                            @if (Auth::user()->role == "manufacturer")
+                            <li class="nav-item">
+                                <a class="nav-link border border-info rounded " href="{{url("/order")}}">Order List</a>
+                            </li>
+                            @endif
                             {{Auth::user()->role}}
+                            
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
