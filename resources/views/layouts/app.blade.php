@@ -68,16 +68,12 @@
                                 </li>
                             @endif
                         @else
-                            @if (Auth::user()->role == "customer")
+                            
                             <li class="nav-item">
                                 <a class="nav-link border border-info rounded " href="{{url("/order")}}">Cart</a>
                             </li>
-                            @endif
-                            @if (Auth::user()->role == "manufacturer")
-                            <li class="nav-item">
-                                <a class="nav-link border border-info rounded " href="{{url("/order")}}">Order List</a>
-                            </li>
-                            @endif
+                           
+                            
                             {{Auth::user()->role}}
                             
 

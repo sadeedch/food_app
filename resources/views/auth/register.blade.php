@@ -73,11 +73,11 @@
 
 
                 
-                        <!-- 
-                        <input type ="hidden" value = "restaurants" name = "role">
-
-
-                        -->
+                       
+                        <div class="form-group">
+                            <input type="hidden" name="role" class="form-control" value="customer">                                        
+                        </div>
+                     
                     
                      
 

@@ -17,26 +17,18 @@ class OrderController extends Controller
      */
     public function index()
     {   
-
-        /*$user = Auth::user()->name;
-        
-        $name = $user;
-        $products = Product::whereHas('manufacturer', function($query) use ($name){
-        return $query->whereRaw('name like ?', array("%$name%"));
-        })->get();
-        */
-
         $user = Auth::user()->id;
 
-       
-        $orders = \DB::select('select u.name, u.address, p.name, p.price from users u, orders o, products p
-         where u.id = ? and u.id = o.user_id and o.product_id = p.id', [$user]);
+        //$orders = \DB::select('select u.name, u.address, p.name, p.price from users u, orders o, products p
+        // where u.id = ? and u.id = o.user_id and o.product_id = p.id', [$user]);
 
-         
+        $orders= User::find($user)->products()->get();
+        $user_address=Auth::user()->address;
         
+        $total_cart = Auth::user()->products->sum('price');
+        $user_name=Auth::user()->name;
         
-        //$products = Product::orderBy('name', 'desc')->paginate(2 );
-        return view ('orders.index')->with('orders', $orders );
+        return view ('orders.index')->with('orders', $orders )->with('user_address', $user_address)->with('total_cart', $total_cart)->with('user_name', $user_name);
     }
 
     /**
@@ -57,26 +49,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-       /*
-        $order = new Order();
-        $order->user_id = $request->user;
-        $order->product_id = $request->product;
-        $order->manufacturer_id = $request->manufacturer;
-        //$order->quantity = 1;
-        $order->save();
-        return redirect ("product/$product->id"); 
-        */
-
-        /*
-        $order = new Order();
-        $order->user_id = $request->user;
-        $order->product_id = $request->product;
-        $order->manufacturer_id = $request->manufacturer;
-        
-        //$order->quantity = 1; $order['quantity']++;
-        $order->save();
-        return redirect()->back()->with('message', 'Dish has been added to your Order');
-        */
+       
         $order = new Order();
         $order->user_id = Auth::id();
         $order->product_id = $request->product_id;
@@ -85,16 +58,6 @@ class OrderController extends Controller
         $order->save();
 
         return redirect()->back()->with('message',' Dish has been added to your Order');
-        
-        
-
-       
-
-        
-
-        
-
-
     }
 
     /**

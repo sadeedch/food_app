@@ -4,9 +4,7 @@
 @endsection
 
 @section('content')
-<div  class="btn btn-success"  >
-<p> <a  style="color: white;" href='{{url("product/create")}}'>Add New Dish</a></p>
-</div>
+
     
     @if(session()->has('message'))
         <div class="alert alert-success">
@@ -24,20 +22,24 @@
         <img src="{{url($product->image)}}" alt="product image" style="width:300px;height:300px;">
         <input type="hidden" name="manufacturer_id" value="{{$product->manufacturer_id}}">
         <input type="hidden" name="product_id" value="{{$product->id}}">
-        @guest
-          @else
-          @if (Auth::user()->role == "customer")
+
+        
+
+    @guest
+    @else
+    @if (Auth::user()->role == "customer")
           <br><br>
           <input type="submit" value="Add to Order">
           @endif
-        @endguest
+       
      </form>
 
 
 
-    @guest
-    @else
-      @if (Auth::user()->role =="manufacturer" && $manufacturers->name == Auth::user()->name) 
+
+      @if (Auth::user()->role =="manufacturer" && $manufacturers->name == Auth::user()->name)
+
+      
     
     <p> <a href='{{url("product/$product->id/edit")}}'> Edit</a></p>
       
@@ -50,11 +52,15 @@
      @endif
     @endguest
     </p></div><br>
-    @endforeach  
+    @endforeach 
+    <div  class="btn" > 
+    <p>{{ $products->links()}}</p>
+    </div>
+    @if (Auth::user()->role =="manufacturer" && $manufacturers->name == Auth::user()->name)
+      <div  class="btn btn-success"  >
+        <p> <a  style="color: white;" href='{{url("product/create")}}'>Add New Dish</a></p>
+      </div>
+    @endif
     
- 
-
-
-
 @endsection
 

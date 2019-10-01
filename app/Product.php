@@ -13,6 +13,6 @@ class Product extends Model
     }
 
     function orders(){
-        return $this->belongsTo('App\Order');
+        return $this->belongsTo('App\Order')->withPivot('id');;
     }
 }

@@ -52,7 +52,9 @@ class ManufacturerController extends Controller
     public function show($id)
     {
        $manufacturers = Manufacturer::find($id);
-       $products = $manufacturers->products;
+       //$products = $manufacturers->products;
+       $products = Manufacturer::find($id)->products()->paginate(5);
+       //$comments = Post::find($request->post_id)->comments()->paginate(6);
        return view ('products.show')->with('products',$products)->with('manufacturers', $manufacturers);
     }
 
