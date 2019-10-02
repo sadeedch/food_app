@@ -48,7 +48,7 @@
     <li>Template inheritance is being used for this application. </li><br>
 
     <h2 class="bg-success" style = "width: 450px;"><strong>Entity Relationship Diagram</strong></h2>
-    
+    <img src="products_images/er.png" alt="product image" style="width:600px;height:600px;">
 </div>
 
 

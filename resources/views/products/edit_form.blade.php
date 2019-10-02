@@ -1,3 +1,5 @@
+
+
 @extends('layouts.app')
 
 @section('title')
@@ -5,7 +7,7 @@
 @endsection
 
 @section('content')
-
+@if (Auth::user()->role =="manufacturer")
   <form method="post" action= '{{url("product/$product->id")}}'>
       {{csrf_field()}}
       {{method_field('PUT')}}
@@ -24,24 +26,13 @@
       <p><label>Price:</label> <input type="text" name="price" value="{{$product->price}}"><br></p>
       @endif
       
-      @foreach ($manufacturers as $manufacturer)
-      <input type="hidden" name="manufacturer" value="{{$manufacturer->id}}">
-      @endforeach
+      <input type="hidden" name="manufacturer" value="{{$product->manufacturer_id}}">
+
       
       
-      <!-- 
-      <p> <select name="manufacturer">
-      @foreach ($manufacturers as $manufacturer)
-        @if ($manufacturer->id == $product->manufacturer_id)
-            <option value="{{$manufacturer->id}}" selected = "selected"> {{$manufacturer->name}}</option> 
-        @else
-            <option value="{{$manufacturer->id}}"> {{$manufacturer->name}}</option> 
-        @endif
-      @endforeach
-      </select></p> 
-    -->
+     
     <input type="submit" value="Update item">
   </form>
 
-
+  @endif
 @endsection

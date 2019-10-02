@@ -7,7 +7,7 @@
 @section('content')
 
 <html>
-<body background="products_images/background.png" style = "background-size: cover;" >
+<body background="products_images/background.jpeg" style = "background-size: cover;" >
 <h1 style = "color: white;position: absolute; 
  font-size: 60px; background: rgba(5,5,5, 0.6);left: 150px;top: 150px;"> Welcome to Food App</h1>
 

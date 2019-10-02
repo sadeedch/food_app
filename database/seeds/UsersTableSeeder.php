@@ -19,14 +19,6 @@ class UsersTableSeeder extends Seeder
             'role' => 'customer',
             ]);
         DB::table('users')->insert([
-            'name' => "Fred",
-            'email' => 'Fred@gmail.com',
-            'password' => bcrypt('1234'),
-            'address' => '8 woodsina street, brisbane',
-            'role' => 'customer',
-            
-            ]);
-        DB::table('users')->insert([
             'name' => "sadeed",
             'email' => 'sadeed@gmail.com',
             'password' => bcrypt('1234'),
@@ -34,13 +26,26 @@ class UsersTableSeeder extends Seeder
             'role' => 'customer',
             ]);
             DB::table('users')->insert([
-               
             'name' => "Food Point",
             'email' => 'food@gmail.com',
             'password' => bcrypt('1234'),
             'address' => '65 throughton road, Brisbane',
             'role' => 'manufacturer',
-            'updated_at' => DB::raw('CURRENT_TIMESTAMP')
+            ]);
+            DB::table('users')->insert([
+            'name' => 'Nandos',
+            'email' => 'nandos@gmail.com',
+            'password' => bcrypt('1234'),
+            'address' => '65 throughton road, Brisbane',
+            'role' => 'manufacturer',
+            ]);
+            DB::table('users')->insert([
+            'name' => 'McDonalds',
+            'email' => 'mcdonalds@gmail.com',
+            'password' => bcrypt('1234'),
+            'address' => '65 throughton road, Brisbane',
+            'role' => 'manufacturer',
+                    
             ]);
     }
 }

@@ -12,30 +12,28 @@ class ManufacturersTableSeeder extends Seeder
     public function run()
     {
         DB::table('manufacturers')->insert([
-            'role' => 'manufacturer',
             'name' => "Food Point",
             'email' => 'food@gmail.com',
             'password' => bcrypt('1234'),
             'address' => '65 throughton road, Brisbane',
-            'updated_at' => DB::raw('CURRENT_TIMESTAMP')
+            'user_id' => '3' ,
+            
         ]);
 
         DB::table('manufacturers')->insert([
-            'role' => 'manufacturer',
             'name' => 'Nandos',
             'email' => 'nandos@gmail.com',
             'password' => bcrypt('1234'),
             'address' => '65 throughton road, Brisbane',
-            'updated_at' => DB::raw('CURRENT_TIMESTAMP')
+            'user_id' => '4' ,
         ]);
 
         DB::table('manufacturers')->insert([
-            'role' => 'manufacturer',
             'name' => 'McDonalds',
             'email' => 'mcdonalds@gmail.com',
             'password' => bcrypt('1234'),
             'address' => '65 throughton road, Brisbane',
-            'updated_at' => DB::raw('CURRENT_TIMESTAMP')
+            'user_id' => '5' ,
         ]);
        
         
