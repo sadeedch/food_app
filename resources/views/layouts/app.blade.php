@@ -72,6 +72,10 @@
                             <li class="nav-item">
                                 <a class="nav-link border border-info rounded " href="{{url("/order")}}">Cart</a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link border border-info rounded " href="{{url("/order/stats")}}">Stats</a>
+                            </li>
                            
                             
                             {{Auth::user()->role}}

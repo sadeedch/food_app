@@ -17,6 +17,9 @@ class OrderController extends Controller
      */
     public function index()
     {   
+        
+
+
         $user = Auth::user()->id;
 
         //$orders = \DB::select('select u.name, u.address, p.name, p.price from users u, orders o, products p
@@ -68,9 +71,20 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $user = Auth::user()->name;
+        $orders = \DB::select('select p.name, COUNT (p.name) from orders o, products p where
+        o.product_id = p.id group by p.name ORDER BY COUNT(p.name) DESC  ');
+      
+
+
+        $rests = \DB::select('select DISTINCT p.name from users u, products p, orders o, manufacturers m where
+        o.product_id = p.id and m.id = o.manufacturer_id and m.id = 1');
         
-        dd($user);
+       
+        
+        return view ('orders.stats')->with('orders', $orders )->with('rests', $rests );
+      
+
+
     }
 
     /**
@@ -107,4 +121,5 @@ class OrderController extends Controller
         
     
     }
+
 }

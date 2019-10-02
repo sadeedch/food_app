@@ -24,6 +24,11 @@ Route::get('doc', function(){
     return view('doc');
 });
 
+Route::get('stats', function(){
+    return view('stats');
+});
+
+
 //???  Route::post('products/order/{id}', 'ProductController@addToOrder');
 
 
