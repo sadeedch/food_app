@@ -1,6 +1,7 @@
 
 # Food Ordering Application
 
+ :hamburger: This application allows the users to register on the website as coustmers or restaurents. 
 
 
 
