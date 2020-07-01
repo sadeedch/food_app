@@ -1,8 +1,11 @@
 
 # Food Ordering Application
 
- :hamburger: This application allows the users to register on the website as coustmers or restaurents. 
-
+ :hamburger: This application allows the users to register as customers or restaurents. 
+ :hamburger: Built in PHP laravel.
+ :hamburger: Use of CRUD(create, read, update and delete) to achieve the functionality. 
+ :hamburger: Eloquent ORM used with Laravel to provide active record implementation of database.
+ :hamburger: Main functions include registration and login system for users, being able to purchase a particular dish as well as use of pagination and image uploading for restaurants. 
 
 
 ## About Laravel
